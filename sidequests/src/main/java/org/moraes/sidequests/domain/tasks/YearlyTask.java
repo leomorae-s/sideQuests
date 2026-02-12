@@ -1,50 +1,20 @@
 package org.moraes.sidequests.domain.tasks;
 
 import jakarta.persistence.*;
-import org.jspecify.annotations.NonNull;
-
+import org.moraes.sidequests.enums.Identifier;
+import org.moraes.sidequests.interfaces.Task;
 import java.util.Objects;
 
-@Entity(name = "yearly")
-public class YearlyTask {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(name = "name")
-    @NonNull
-    private String name;
-    @Column(name = "description")
-    private String description;
-    @Column(name = "completed")
-    private Boolean completed = false;
-//    @Column(name = "user_id")
-//    private Integer userId;
+@Entity
+@Table(name = "yearly")
+public class YearlyTask extends Task {
 
-    public YearlyTask(@NonNull String name, String description) {
-        this.name = name;
-        this.description = description;
+    public YearlyTask (String name, String description, Identifier identifier) {
+        super(name, description, identifier = Identifier.YEARLY);
     }
 
-//    public long getId() {
-//        return id;
-//    }
-
-    public @NonNull String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Boolean getCompleted() {
-        return completed;
-    }
-
-//    public Integer getUserId() {
-//        return userId;
-//    }
+    public YearlyTask() {}
 
     @Override
     public boolean equals(Object o) {

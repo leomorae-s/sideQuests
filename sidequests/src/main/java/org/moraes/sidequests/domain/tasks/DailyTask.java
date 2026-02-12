@@ -1,49 +1,21 @@
 package org.moraes.sidequests.domain.tasks;
 
 import jakarta.persistence.*;
-import org.jspecify.annotations.NonNull;
+import org.moraes.sidequests.enums.Identifier;
+import org.moraes.sidequests.interfaces.Task;
 import java.util.Objects;
 
-@Entity(name = "daily_tasks")
-public class DailyTask {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(name = "name")
-    @NonNull
-    private String name;
-    @Column(name = "description")
-    private String description;
-    @Column(name = "completed")
-    private Boolean completed = false;
-//    @Column(name = "user_id")
-//    private Integer userId;
+@Entity
+@Table(name = "daily_tasks")
+public class DailyTask extends Task {
 
-    public DailyTask(@NonNull String name, String description) {
-        this.name = name;
-        this.description = description;
+
+    public DailyTask(String name, String description, Identifier identifier) {
+        super(name, description, identifier = Identifier.DAILY);
     }
 
-    public @NonNull String getName() {
-        return name;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Boolean getCompleted() {
-        return completed;
-    }
-
-//    public Integer getUserId() {
-//        return userId;
-//    }
+    public DailyTask(){}
 
     @Override
     public boolean equals(Object o) {

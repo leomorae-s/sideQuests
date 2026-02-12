@@ -1,46 +1,20 @@
 package org.moraes.sidequests.domain.tasks;
 
 import jakarta.persistence.*;
-import org.jspecify.annotations.NonNull;
-
+import org.moraes.sidequests.enums.Identifier;
+import org.moraes.sidequests.interfaces.Task;
 import java.util.Objects;
 
-@Entity(name = "quinquennially")
-public class QuinquenniallyTask {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(name = "name")
-    @NonNull
-    private String name;
-    @Column(name = "description")
-    private String description;
-    @Column(name = "completed")
-    private Boolean completed = false;
-//    @Column(name = "user_id")
-//    private Integer userId;
+@Entity
+@Table(name = "quinquennially")
+public class QuinquenniallyTask extends Task {
 
-    public QuinquenniallyTask(@NonNull String name, String description) {
-        this.name = name;
-        this.description = description;
+    public QuinquenniallyTask(String name, String description, Identifier identifier) {
+        super(name, description, identifier = Identifier.QUINQUENNIALLY);
     }
 
-//    public Integer getId() {
-//        return id;
-//    }
-
-    public @NonNull String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-//    public Integer getUserId() {
-//        return userId;
-//    }
+    public QuinquenniallyTask(){}
 
     @Override
     public boolean equals(Object o) {

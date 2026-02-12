@@ -5,7 +5,7 @@
 -- );
 
 CREATE TABLE daily_tasks (
-    id SERIAL PRIMARY KEY NOT NULL,
+    id UUID PRIMARY KEY NOT NULL,
     name VARCHAR(40) NOT NULL,
     description TEXT,
     completed BOOL NOT NULL DEFAULT ('FALSE')
@@ -14,7 +14,7 @@ CREATE TABLE daily_tasks (
 );
 
 CREATE TABLE yearly (
-    id SERIAL PRIMARY KEY NOT NULL,
+    id UUID PRIMARY KEY NOT NULL,
     name VARCHAR(40) NOT NULL,
     description TEXT,
     completed BOOL NOT NULL DEFAULT ('FALSE')
@@ -23,7 +23,7 @@ CREATE TABLE yearly (
 );
 
 CREATE TABLE quinquennially (
-    id SERIAL PRIMARY KEY NOT NULL,
+    id UUID PRIMARY KEY NOT NULL,
     name VARCHAR(40) NOT NULL,
     description TEXT,
     completed BOOL NOT NULL DEFAULT ('FALSE')
